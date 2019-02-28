@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="./index.js" defer></script>
+</head>
+
+<body>
+	<style>
+		/* body>div {
+			width: 100px;
+			height: 50px;
+		}
+
+		#rectangle {
+			background-color: red;
+			position: absolute;
+		}
+
+
+		@keyframes go {
+			0% {
+				left: 0px;
+			}
+			100% {
+				left: 90px;
+			}
+		}
+
+		#rectangle>div {
+			background-color: green;
+			height: 50px;
+			width: 10px;
+			position: relative;
+			/* left: 90px; */
+
+		/* animation: go 2s infinite linear; */
+
+		/* }  */
+
+		/* div {
+			padding: 48px;
+			margin: auto 0;
+		}
+
+		button {
+			padding: 48px;
+			margin: 0 auto;
+			width: fit-content;
+			transition: background-color 1s;
+			background-color: white;
+		} */
+	</style>
+	<!-- <button id="btn">show hidden</button>
+	<img>
+	<div id="rectangle">
+		<div></div>
+	</div> -->
+
+	<!-- <div id="d1">
+		<div id="d2">
+			<div id="d3">
+				<div id="d4">
+					<button id="b1">click me</button>
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+	<style>
+		#container {
+			border: 1px solid black;
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			width: 200px;
+			height: 200px;
+		}
+
+
+
+		#container>* {
+			display: flex;
+			border: 1px solid black;
+
+			width: calc(200px/3);
+			height: calc(200px/3);
+			box-sizing: border-box;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.o {
+			width: 25px;
+			height: 25px;
+			border: 2px solid black;
+			border-radius: 50%;
+		}
+
+		.x {
+			width: 25px;
+			height: 25px;
+			border: 2px solid red;
+			/* content: "+";
+			font-size: 60px;
+			transform: translate(-50%, -50%) rotate(45deg); */
+		}
+	</style>
+	<div id="container">
+		<div id="1"></div>
+		<div id="2"></div>
+		<div id="3">2</div>
+		<div id="4"></div>
+		<div id="5"></div>
+		<div id="6"></div>
+		<div id="7"></div>
+		<div id="8"></div>
+		<div id="9"></div>
+	</div>
+
+</body>
+
+</html>
