@@ -58,32 +58,18 @@
 // }
 const ROOT = document.querySelector("#container");
 
+
+
 ROOT.onclick = function (e) {
-	// console.log(e.target.innerHTML === "")
-	console.log(e.target.innerHTML !== "")
-
-
-	let x = document.createElement('div');
-	let o = document.createElement('div');
+	let x = document.createElement('p');
+	let o = document.createElement('p');
 
 	x.classList.add("x");
 	o.classList.add("o");
 
-	// console.log(x, o)
-	// if (e.target.innerHTML !== "") {
-	// 	e.target.appendChild(x);
-	// 	console.log(e.target)
-	// }
-
-	// this.removeEventListener("load", loaded);
-	// console.log(this)
-	// this.removeEventListener("click");
-
-	if (e.target.innerHTML !== "") {
-		// return;
-	} else {
+	if (e.target.childNodes.length == 0 && e.target.tagName !=="P"){
 		e.target.appendChild(o);
 	}
-
-
 }
+
+
