@@ -62,7 +62,8 @@ ROOT.onclick = function(e) {
   let x = document.createElement("p");
   let o = document.createElement("p");
 
-  x.classList.add("x");
+  //   x.classList.add("x");
+  x.innerHTML = "&times;";
   o.classList.add("o");
 
   if (e.target.childNodes.length == 0 && e.target.tagName !== "P") {
@@ -73,15 +74,15 @@ ROOT.onclick = function(e) {
       e.target.appendChild(x);
       e.target.setAttribute("data-flag", "x");
     }
-    if (step == 5) {
-      //   setTimeout(() => {
-      alert("Anyone will can`t win");
-      location.reload();
+    // if (step == 5) {
+    //   //   setTimeout(() => {
+    //   alert("Anyone will can`t win");
+    //   location.reload();
 
-      //   }, 10);
-    }
+    //   //   }, 10);
+    // }
     step++;
-    console.log(step);
+    // console.log(step);
   }
 };
 
