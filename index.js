@@ -55,8 +55,27 @@
 // 	}, 1000);
 // }
 const ROOT = document.querySelector("#container");
+const RES = document.querySelector("#result");
 
 let step = 0;
+
+let lsX = localStorage.getItem("x");
+let lsO = localStorage.getItem("o");
+
+lsX = lsX ? +lsX : 0;
+lsO = lsO ? +lsO : 0;
+
+if (lsO > 0) {
+  let scoreO = document.createElement("p");
+  scoreO.innerText = `Score "O": ${lsO}`;
+  RES.appendChild(scoreO);
+}
+
+if (lsX > 0) {
+  let scoreX = document.createElement("p");
+  scoreX.innerText = `Score "X": ${lsX}`;
+  RES.appendChild(scoreX);
+}
 
 ROOT.onclick = function(e) {
   let x = document.createElement("p");
@@ -74,15 +93,7 @@ ROOT.onclick = function(e) {
       e.target.appendChild(x);
       e.target.setAttribute("data-flag", "x");
     }
-    // if (step == 5) {
-    //   //   setTimeout(() => {
-    //   alert("Anyone will can`t win");
-    //   location.reload();
-
-    //   //   }, 10);
-    // }
     step++;
-    // console.log(step);
   }
 };
 
@@ -100,6 +111,8 @@ function _win() {
     ROOT.querySelector("[data-num='2']").style.background = "green";
     ROOT.querySelector("[data-num='3']").style.background = "green";
     setTimeout(() => {
+      lsO += 1;
+      localStorage.setItem("o", lsO);
       alert("WIN O!!!");
       location.reload();
     }, 50);
@@ -118,6 +131,8 @@ function _win() {
     ROOT.querySelector("[data-num='2']").style.background = "green";
     ROOT.querySelector("[data-num='3']").style.background = "green";
     setTimeout(() => {
+      lsX += 1;
+      localStorage.setItem("x", lsX);
       alert("WIN X!!!");
       location.reload();
     }, 50);
@@ -136,6 +151,8 @@ function _win() {
     ROOT.querySelector("[data-num='5']").style.background = "green";
     ROOT.querySelector("[data-num='6']").style.background = "green";
     setTimeout(() => {
+      lsO += 1;
+      localStorage.setItem("o", lsO);
       alert("WIN O!!!");
       location.reload();
     }, 50);
@@ -154,6 +171,8 @@ function _win() {
     ROOT.querySelector("[data-num='5']").style.background = "green";
     ROOT.querySelector("[data-num='6']").style.background = "green";
     setTimeout(() => {
+      lsX += 1;
+      localStorage.setItem("x", lsX);
       alert("WIN X!!!");
       location.reload();
     }, 50);
@@ -172,6 +191,8 @@ function _win() {
     ROOT.querySelector("[data-num='8']").style.background = "green";
     ROOT.querySelector("[data-num='9']").style.background = "green";
     setTimeout(() => {
+      lsO += 1;
+      localStorage.setItem("o", lsO);
       alert("WIN O!!!");
       location.reload();
     }, 50);
@@ -190,6 +211,8 @@ function _win() {
     ROOT.querySelector("[data-num='8']").style.background = "green";
     ROOT.querySelector("[data-num='9']").style.background = "green";
     setTimeout(() => {
+      lsX += 1;
+      localStorage.setItem("x", lsX);
       alert("WIN X!!!");
       location.reload();
     }, 50);
@@ -208,6 +231,8 @@ function _win() {
     ROOT.querySelector("[data-num='4']").style.background = "green";
     ROOT.querySelector("[data-num='7']").style.background = "green";
     setTimeout(() => {
+      lsO += 1;
+      localStorage.setItem("o", lsO);
       alert("WIN O!!!");
       location.reload();
     }, 50);
@@ -226,6 +251,8 @@ function _win() {
     ROOT.querySelector("[data-num='4']").style.background = "green";
     ROOT.querySelector("[data-num='7']").style.background = "green";
     setTimeout(() => {
+      lsX += 1;
+      localStorage.setItem("x", lsX);
       alert("WIN X!!!");
       location.reload();
     }, 50);
@@ -244,6 +271,8 @@ function _win() {
     ROOT.querySelector("[data-num='5']").style.background = "green";
     ROOT.querySelector("[data-num='8']").style.background = "green";
     setTimeout(() => {
+      lsO += 1;
+      localStorage.setItem("o", lsO);
       alert("WIN O!!!");
       location.reload();
     }, 50);
@@ -262,6 +291,8 @@ function _win() {
     ROOT.querySelector("[data-num='5']").style.background = "green";
     ROOT.querySelector("[data-num='8']").style.background = "green";
     setTimeout(() => {
+      lsX += 1;
+      localStorage.setItem("x", lsX);
       alert("WIN X!!!");
       location.reload();
     }, 50);
@@ -280,6 +311,8 @@ function _win() {
     ROOT.querySelector("[data-num='6']").style.background = "green";
     ROOT.querySelector("[data-num='9']").style.background = "green";
     setTimeout(() => {
+      lsO += 1;
+      localStorage.setItem("o", lsO);
       alert("WIN O!!!");
       location.reload();
     }, 50);
@@ -298,6 +331,8 @@ function _win() {
     ROOT.querySelector("[data-num='6']").style.background = "green";
     ROOT.querySelector("[data-num='9']").style.background = "green";
     setTimeout(() => {
+      lsX += 1;
+      localStorage.setItem("x", lsX);
       alert("WIN X!!!");
       location.reload();
     }, 50);
@@ -316,6 +351,8 @@ function _win() {
     ROOT.querySelector("[data-num='5']").style.background = "green";
     ROOT.querySelector("[data-num='9']").style.background = "green";
     setTimeout(() => {
+      lsO += 1;
+      localStorage.setItem("o", lsO);
       alert("WIN O!!!");
       location.reload();
     }, 50);
@@ -334,6 +371,8 @@ function _win() {
     ROOT.querySelector("[data-num='5']").style.background = "green";
     ROOT.querySelector("[data-num='9']").style.background = "green";
     setTimeout(() => {
+      lsX += 1;
+      localStorage.setItem("x", lsX);
       alert("WIN X!!!");
       location.reload();
     }, 50);
@@ -352,6 +391,8 @@ function _win() {
     ROOT.querySelector("[data-num='5']").style.background = "green";
     ROOT.querySelector("[data-num='7']").style.background = "green";
     setTimeout(() => {
+      lsO += 1;
+      localStorage.setItem("o", lsO);
       alert("WIN O!!!");
       location.reload();
     }, 50);
@@ -370,10 +411,28 @@ function _win() {
     ROOT.querySelector("[data-num='5']").style.background = "green";
     ROOT.querySelector("[data-num='7']").style.background = "green";
     setTimeout(() => {
+      lsX += 1;
+      localStorage.setItem("x", lsX);
       alert("WIN X!!!");
       location.reload();
     }, 50);
   }
+  setTimeout(() => {
+    if (
+      ROOT.childNodes[1].getAttribute("data-flag") &&
+      ROOT.childNodes[3].getAttribute("data-flag") &&
+      ROOT.childNodes[5].getAttribute("data-flag") &&
+      ROOT.childNodes[7].getAttribute("data-flag") &&
+      ROOT.childNodes[9].getAttribute("data-flag") &&
+      ROOT.childNodes[11].getAttribute("data-flag") &&
+      ROOT.childNodes[13].getAttribute("data-flag") &&
+      ROOT.childNodes[15].getAttribute("data-flag") &&
+      ROOT.childNodes[17].getAttribute("data-flag")
+    ) {
+      alert("This game has not winners!");
+      location.reload();
+    }
+  }, 1000);
 }
 
 addEventListener("click", _win);
