@@ -97,19 +97,49 @@ ROOT.onclick = function(e) {
   }
 };
 
+function checkO(a, b, c) {
+  let winLine =
+    ROOT.childNodes[a].getAttribute("data-flag") == "o" &&
+    ROOT.childNodes[b].getAttribute("data-flag") == "o" &&
+    ROOT.childNodes[c].getAttribute("data-flag") == "o";
+  if (winLine) {
+    return true;
+  } else return false;
+}
+
+function checkX(a, b, c) {
+  let winLine =
+    ROOT.childNodes[a].getAttribute("data-flag") == "x" &&
+    ROOT.childNodes[b].getAttribute("data-flag") == "x" &&
+    ROOT.childNodes[c].getAttribute("data-flag") == "x";
+  if (winLine) {
+    return true;
+  } else return false;
+}
+
+function renderWin(a, b, c) {
+  ROOT.querySelector("[data-num='" + a + "']").style.background = "green";
+  ROOT.querySelector("[data-num='" + b + "']").style.background = "green";
+  ROOT.querySelector("[data-num='" + c + "']").style.background = "green";
+}
+
+function defeat() {
+  let arr = [1, 3, 5, 7, 9, 11, 13, 15, 17];
+  if (
+    arr.every(e => {
+      if (ROOT.childNodes[e].getAttribute("data-flag")) {
+        return true;
+      } else return false;
+    })
+  ) {
+    return true;
+  } else return false;
+}
+
 function _win() {
   //------------------ 1,2,3 O ------------------//
-  if (
-    ROOT.childNodes[1].getAttribute("data-flag") &&
-    ROOT.childNodes[1].getAttribute("data-flag") == "o" &&
-    (ROOT.childNodes[3].getAttribute("data-flag") &&
-      ROOT.childNodes[3].getAttribute("data-flag") == "o") &&
-    (ROOT.childNodes[5].getAttribute("data-flag") &&
-      ROOT.childNodes[5].getAttribute("data-flag") == "o")
-  ) {
-    ROOT.querySelector("[data-num='1']").style.background = "green";
-    ROOT.querySelector("[data-num='2']").style.background = "green";
-    ROOT.querySelector("[data-num='3']").style.background = "green";
+  if (checkO(1, 3, 5)) {
+    renderWin(1, 2, 3);
     setTimeout(() => {
       lsO += 1;
       localStorage.setItem("o", lsO);
@@ -119,17 +149,8 @@ function _win() {
   }
 
   //------------------ 1,2,3 X ------------------//
-  if (
-    ROOT.childNodes[1].getAttribute("data-flag") &&
-    ROOT.childNodes[1].getAttribute("data-flag") == "x" &&
-    (ROOT.childNodes[3].getAttribute("data-flag") &&
-      ROOT.childNodes[3].getAttribute("data-flag") == "x") &&
-    (ROOT.childNodes[5].getAttribute("data-flag") &&
-      ROOT.childNodes[5].getAttribute("data-flag") == "x")
-  ) {
-    ROOT.querySelector("[data-num='1']").style.background = "green";
-    ROOT.querySelector("[data-num='2']").style.background = "green";
-    ROOT.querySelector("[data-num='3']").style.background = "green";
+  if (checkX(1, 3, 5)) {
+    renderWin(1, 2, 3);
     setTimeout(() => {
       lsX += 1;
       localStorage.setItem("x", lsX);
@@ -139,17 +160,8 @@ function _win() {
   }
 
   //------------------ 4,5,6 O ------------------//
-  if (
-    ROOT.childNodes[7].getAttribute("data-flag") &&
-    ROOT.childNodes[7].getAttribute("data-flag") == "o" &&
-    (ROOT.childNodes[9].getAttribute("data-flag") &&
-      ROOT.childNodes[9].getAttribute("data-flag") == "o") &&
-    (ROOT.childNodes[11].getAttribute("data-flag") &&
-      ROOT.childNodes[11].getAttribute("data-flag") == "o")
-  ) {
-    ROOT.querySelector("[data-num='4']").style.background = "green";
-    ROOT.querySelector("[data-num='5']").style.background = "green";
-    ROOT.querySelector("[data-num='6']").style.background = "green";
+  if (checkO(7, 9, 11)) {
+    renderWin(4, 5, 6);
     setTimeout(() => {
       lsO += 1;
       localStorage.setItem("o", lsO);
@@ -159,17 +171,8 @@ function _win() {
   }
 
   //------------------ 4,5,6 X ------------------//
-  if (
-    ROOT.childNodes[7].getAttribute("data-flag") &&
-    ROOT.childNodes[7].getAttribute("data-flag") == "x" &&
-    (ROOT.childNodes[9].getAttribute("data-flag") &&
-      ROOT.childNodes[9].getAttribute("data-flag") == "x") &&
-    (ROOT.childNodes[11].getAttribute("data-flag") &&
-      ROOT.childNodes[11].getAttribute("data-flag") == "x")
-  ) {
-    ROOT.querySelector("[data-num='4']").style.background = "green";
-    ROOT.querySelector("[data-num='5']").style.background = "green";
-    ROOT.querySelector("[data-num='6']").style.background = "green";
+  if (checkX(7, 9, 11)) {
+    renderWin(4, 5, 6);
     setTimeout(() => {
       lsX += 1;
       localStorage.setItem("x", lsX);
@@ -179,17 +182,8 @@ function _win() {
   }
 
   //------------------ 7,8,9 O ------------------//
-  if (
-    ROOT.childNodes[13].getAttribute("data-flag") &&
-    ROOT.childNodes[13].getAttribute("data-flag") == "o" &&
-    (ROOT.childNodes[15].getAttribute("data-flag") &&
-      ROOT.childNodes[15].getAttribute("data-flag") == "o") &&
-    (ROOT.childNodes[17].getAttribute("data-flag") &&
-      ROOT.childNodes[17].getAttribute("data-flag") == "o")
-  ) {
-    ROOT.querySelector("[data-num='7']").style.background = "green";
-    ROOT.querySelector("[data-num='8']").style.background = "green";
-    ROOT.querySelector("[data-num='9']").style.background = "green";
+  if (checkO(13, 15, 17)) {
+    renderWin(7, 8, 9);
     setTimeout(() => {
       lsO += 1;
       localStorage.setItem("o", lsO);
@@ -199,17 +193,8 @@ function _win() {
   }
 
   //------------------ 7,8,9 X ------------------//
-  if (
-    ROOT.childNodes[13].getAttribute("data-flag") &&
-    ROOT.childNodes[13].getAttribute("data-flag") == "x" &&
-    (ROOT.childNodes[15].getAttribute("data-flag") &&
-      ROOT.childNodes[15].getAttribute("data-flag") == "x") &&
-    (ROOT.childNodes[17].getAttribute("data-flag") &&
-      ROOT.childNodes[17].getAttribute("data-flag") == "x")
-  ) {
-    ROOT.querySelector("[data-num='7']").style.background = "green";
-    ROOT.querySelector("[data-num='8']").style.background = "green";
-    ROOT.querySelector("[data-num='9']").style.background = "green";
+  if (checkX(13, 15, 17)) {
+    renderWin(7, 8, 9);
     setTimeout(() => {
       lsX += 1;
       localStorage.setItem("x", lsX);
@@ -219,17 +204,8 @@ function _win() {
   }
 
   //------------------ 1,4,7 O ------------------//
-  if (
-    ROOT.childNodes[1].getAttribute("data-flag") &&
-    ROOT.childNodes[1].getAttribute("data-flag") == "o" &&
-    (ROOT.childNodes[7].getAttribute("data-flag") &&
-      ROOT.childNodes[7].getAttribute("data-flag") == "o") &&
-    (ROOT.childNodes[13].getAttribute("data-flag") &&
-      ROOT.childNodes[13].getAttribute("data-flag") == "o")
-  ) {
-    ROOT.querySelector("[data-num='1']").style.background = "green";
-    ROOT.querySelector("[data-num='4']").style.background = "green";
-    ROOT.querySelector("[data-num='7']").style.background = "green";
+  if (checkO(1, 7, 13)) {
+    renderWin(1, 4, 7);
     setTimeout(() => {
       lsO += 1;
       localStorage.setItem("o", lsO);
@@ -239,17 +215,8 @@ function _win() {
   }
 
   //------------------ 1,4,7 X ------------------//
-  if (
-    ROOT.childNodes[1].getAttribute("data-flag") &&
-    ROOT.childNodes[1].getAttribute("data-flag") == "x" &&
-    (ROOT.childNodes[7].getAttribute("data-flag") &&
-      ROOT.childNodes[7].getAttribute("data-flag") == "x") &&
-    (ROOT.childNodes[13].getAttribute("data-flag") &&
-      ROOT.childNodes[13].getAttribute("data-flag") == "x")
-  ) {
-    ROOT.querySelector("[data-num='1']").style.background = "green";
-    ROOT.querySelector("[data-num='4']").style.background = "green";
-    ROOT.querySelector("[data-num='7']").style.background = "green";
+  if (checkX(1, 7, 13)) {
+    renderWin(1, 4, 7);
     setTimeout(() => {
       lsX += 1;
       localStorage.setItem("x", lsX);
@@ -259,17 +226,8 @@ function _win() {
   }
 
   //------------------ 2,5,8 O ------------------//
-  if (
-    ROOT.childNodes[3].getAttribute("data-flag") &&
-    ROOT.childNodes[3].getAttribute("data-flag") == "o" &&
-    (ROOT.childNodes[9].getAttribute("data-flag") &&
-      ROOT.childNodes[9].getAttribute("data-flag") == "o") &&
-    (ROOT.childNodes[15].getAttribute("data-flag") &&
-      ROOT.childNodes[15].getAttribute("data-flag") == "o")
-  ) {
-    ROOT.querySelector("[data-num='2']").style.background = "green";
-    ROOT.querySelector("[data-num='5']").style.background = "green";
-    ROOT.querySelector("[data-num='8']").style.background = "green";
+  if (checkO(3, 9, 15)) {
+    renderWin(2, 5, 8);
     setTimeout(() => {
       lsO += 1;
       localStorage.setItem("o", lsO);
@@ -279,17 +237,8 @@ function _win() {
   }
 
   //------------------ 2,5,8 X ------------------//
-  if (
-    ROOT.childNodes[3].getAttribute("data-flag") &&
-    ROOT.childNodes[3].getAttribute("data-flag") == "x" &&
-    (ROOT.childNodes[9].getAttribute("data-flag") &&
-      ROOT.childNodes[9].getAttribute("data-flag") == "x") &&
-    (ROOT.childNodes[15].getAttribute("data-flag") &&
-      ROOT.childNodes[15].getAttribute("data-flag") == "x")
-  ) {
-    ROOT.querySelector("[data-num='2']").style.background = "green";
-    ROOT.querySelector("[data-num='5']").style.background = "green";
-    ROOT.querySelector("[data-num='8']").style.background = "green";
+  if (checkX(3, 9, 15)) {
+    renderWin(2, 5, 8);
     setTimeout(() => {
       lsX += 1;
       localStorage.setItem("x", lsX);
@@ -299,17 +248,8 @@ function _win() {
   }
 
   //------------------ 3,6,9 O ------------------//
-  if (
-    ROOT.childNodes[5].getAttribute("data-flag") &&
-    ROOT.childNodes[5].getAttribute("data-flag") == "o" &&
-    (ROOT.childNodes[11].getAttribute("data-flag") &&
-      ROOT.childNodes[11].getAttribute("data-flag") == "o") &&
-    (ROOT.childNodes[17].getAttribute("data-flag") &&
-      ROOT.childNodes[17].getAttribute("data-flag") == "o")
-  ) {
-    ROOT.querySelector("[data-num='3']").style.background = "green";
-    ROOT.querySelector("[data-num='6']").style.background = "green";
-    ROOT.querySelector("[data-num='9']").style.background = "green";
+  if (checkO(5, 11, 17)) {
+    renderWin(3, 6, 9);
     setTimeout(() => {
       lsO += 1;
       localStorage.setItem("o", lsO);
@@ -319,17 +259,8 @@ function _win() {
   }
 
   //------------------ 3,6,9 X ------------------//
-  if (
-    ROOT.childNodes[5].getAttribute("data-flag") &&
-    ROOT.childNodes[5].getAttribute("data-flag") == "x" &&
-    (ROOT.childNodes[11].getAttribute("data-flag") &&
-      ROOT.childNodes[11].getAttribute("data-flag") == "x") &&
-    (ROOT.childNodes[17].getAttribute("data-flag") &&
-      ROOT.childNodes[17].getAttribute("data-flag") == "x")
-  ) {
-    ROOT.querySelector("[data-num='3']").style.background = "green";
-    ROOT.querySelector("[data-num='6']").style.background = "green";
-    ROOT.querySelector("[data-num='9']").style.background = "green";
+  if (checkX(5, 11, 17)) {
+    renderWin(3, 6, 9);
     setTimeout(() => {
       lsX += 1;
       localStorage.setItem("x", lsX);
@@ -339,17 +270,8 @@ function _win() {
   }
 
   //------------------ 1,5,9 O ------------------//
-  if (
-    ROOT.childNodes[1].getAttribute("data-flag") &&
-    ROOT.childNodes[1].getAttribute("data-flag") == "o" &&
-    (ROOT.childNodes[9].getAttribute("data-flag") &&
-      ROOT.childNodes[9].getAttribute("data-flag") == "o") &&
-    (ROOT.childNodes[17].getAttribute("data-flag") &&
-      ROOT.childNodes[17].getAttribute("data-flag") == "o")
-  ) {
-    ROOT.querySelector("[data-num='1']").style.background = "green";
-    ROOT.querySelector("[data-num='5']").style.background = "green";
-    ROOT.querySelector("[data-num='9']").style.background = "green";
+  if (checkO(1, 9, 17)) {
+    renderWin(1, 5, 9);
     setTimeout(() => {
       lsO += 1;
       localStorage.setItem("o", lsO);
@@ -359,17 +281,8 @@ function _win() {
   }
 
   //------------------ 1,5,9 X ------------------//
-  if (
-    ROOT.childNodes[1].getAttribute("data-flag") &&
-    ROOT.childNodes[1].getAttribute("data-flag") == "x" &&
-    (ROOT.childNodes[9].getAttribute("data-flag") &&
-      ROOT.childNodes[9].getAttribute("data-flag") == "x") &&
-    (ROOT.childNodes[17].getAttribute("data-flag") &&
-      ROOT.childNodes[17].getAttribute("data-flag") == "x")
-  ) {
-    ROOT.querySelector("[data-num='1']").style.background = "green";
-    ROOT.querySelector("[data-num='5']").style.background = "green";
-    ROOT.querySelector("[data-num='9']").style.background = "green";
+  if (checkX(1, 9, 17)) {
+    renderWin(1, 5, 9);
     setTimeout(() => {
       lsX += 1;
       localStorage.setItem("x", lsX);
@@ -379,17 +292,8 @@ function _win() {
   }
 
   //------------------ 3,5,7 O ------------------//
-  if (
-    ROOT.childNodes[5].getAttribute("data-flag") &&
-    ROOT.childNodes[5].getAttribute("data-flag") == "o" &&
-    (ROOT.childNodes[9].getAttribute("data-flag") &&
-      ROOT.childNodes[9].getAttribute("data-flag") == "o") &&
-    (ROOT.childNodes[13].getAttribute("data-flag") &&
-      ROOT.childNodes[13].getAttribute("data-flag") == "o")
-  ) {
-    ROOT.querySelector("[data-num='3']").style.background = "green";
-    ROOT.querySelector("[data-num='5']").style.background = "green";
-    ROOT.querySelector("[data-num='7']").style.background = "green";
+  if (checkO(5, 9, 13)) {
+    renderWin(3, 5, 7);
     setTimeout(() => {
       lsO += 1;
       localStorage.setItem("o", lsO);
@@ -399,17 +303,8 @@ function _win() {
   }
 
   //------------------ 3,5,7 X ------------------//
-  if (
-    ROOT.childNodes[5].getAttribute("data-flag") &&
-    ROOT.childNodes[5].getAttribute("data-flag") == "x" &&
-    (ROOT.childNodes[9].getAttribute("data-flag") &&
-      ROOT.childNodes[9].getAttribute("data-flag") == "x") &&
-    (ROOT.childNodes[13].getAttribute("data-flag") &&
-      ROOT.childNodes[13].getAttribute("data-flag") == "x")
-  ) {
-    ROOT.querySelector("[data-num='3']").style.background = "green";
-    ROOT.querySelector("[data-num='5']").style.background = "green";
-    ROOT.querySelector("[data-num='7']").style.background = "green";
+  if (checkX(5, 9, 13)) {
+    renderWin(3, 5, 7);
     setTimeout(() => {
       lsX += 1;
       localStorage.setItem("x", lsX);
@@ -417,18 +312,9 @@ function _win() {
       location.reload();
     }, 50);
   }
+
   setTimeout(() => {
-    if (
-      ROOT.childNodes[1].getAttribute("data-flag") &&
-      ROOT.childNodes[3].getAttribute("data-flag") &&
-      ROOT.childNodes[5].getAttribute("data-flag") &&
-      ROOT.childNodes[7].getAttribute("data-flag") &&
-      ROOT.childNodes[9].getAttribute("data-flag") &&
-      ROOT.childNodes[11].getAttribute("data-flag") &&
-      ROOT.childNodes[13].getAttribute("data-flag") &&
-      ROOT.childNodes[15].getAttribute("data-flag") &&
-      ROOT.childNodes[17].getAttribute("data-flag")
-    ) {
+    if (defeat()) {
       alert("This game has not winners!");
       location.reload();
     }
