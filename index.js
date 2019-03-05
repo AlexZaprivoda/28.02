@@ -118,9 +118,14 @@ function checkX(a, b, c) {
 }
 
 function renderWin(a, b, c) {
-  ROOT.querySelector("[data-num='" + a + "']").style.background = "green";
-  ROOT.querySelector("[data-num='" + b + "']").style.background = "green";
-  ROOT.querySelector("[data-num='" + c + "']").style.background = "green";
+  let arr = [];
+  arr.push(a, b, c);
+  arr.forEach(e => {
+    ROOT.querySelector("[data-num='" + e + "']").style.background = "green";
+  });
+  // ROOT.querySelector("[data-num='" + a + "']").style.background = "green";
+  // ROOT.querySelector("[data-num='" + b + "']").style.background = "green";
+  // ROOT.querySelector("[data-num='" + c + "']").style.background = "green";
 }
 
 function defeat() {
